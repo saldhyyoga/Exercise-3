@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+    *{
+      box-sizing: border-box;
+    }
+    #input{
+      width: 70%;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      margin-bottom: 15px;
+    }
+    #submit{
+      width: 20%;
+      border: 1px solid;
+    }
+    #myTable{
+      border-collapse: collapse;
+      border: 5px solid #ddd;
+      width: 100%;
+    }
+    .header th{
+      background-color: tomato;
+      padding: 12px;
+    }
+    #myTable td{
+      padding: 10px;
+      text-align: left;
+    }
+    #myTable tr{
+      border: 1px solid;
+    }
+    input{
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" id="myInput" placeholder="cari nama disini" onkeyup="myFunction()"/>
+ 
+  <table id="myTable">
+    <thead class="header">
+      <tr>
+        <th>Name</th>
+        <th>Rotation Period</th>
+        <th>Orbital Period</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Aldeeraan</td>
+        <td>24</td>
+        <td>364</td>
+      </tr>
+      <tr>
+        <td>Yavin IV</td>
+        <td>24</td>
+        <td>4818</td>
+      </tr>
+      <tr>
+        <td>Hoth</td>
+        <td>23</td>
+        <td>549</td>
+      </tr>
+      <tr>
+        <td>Dagobah</td>
+        <td>23</td>
+        <td>341</td>
+      </tr>
+      <tr>
+        <td>Bespin</td>
+        <td>12</td>
+        <td>5110</td>
+      </tr>
+      <tr>
+        <td>Endor</td>
+        <td>18</td>
+        <td>402</td>
+      </tr>
+      <tr>
+        <td>naboo</td>
+        <td>26</td>
+        <td>312</td>
+      </tr>
+      <tr>
+        <td>Coruscant</td>
+        <td>24</td>
+        <td>368</td>
+      </tr>
+      <tr>
+        <td>Kamino</td>
+        <td>27</td>
+        <td>463</td>
+      </tr>
+      <tr>
+        <td>Geonosis</td>
+        <td>30</td>
+        <td>256</td>
+      </tr>
+    </tbody>
+  <table>
+  <script>
+      
+    function myFunction() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+        } else {
+            tr[i].style.display = "none";
+        }
+        }       
+    }
+    }
+  </script>
+</body>
+</html>
